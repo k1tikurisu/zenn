@@ -5,12 +5,12 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
-"zenn-cli@npm:^0.1.153":
-  version: 0.1.153
-  resolution: "zenn-cli@npm:0.1.153"
+"zenn-cli@npm:0.1.154":
+  version: 0.1.154
+  resolution: "zenn-cli@npm:0.1.154"
   bin:
     zenn: dist/server/zenn.js
-  checksum: 10c0/6ebfdf79b2c3afa7bb0214e0583d280ca5ec94951f9a3f7932e762257f12591a00b9590dce736b0594b966b5676dbf7978afe81053d63235f38e28b3b153ae38
+  checksum: 10c0/aabd697136a19f8e211d54ba12a63a73158451a9bb22d3efe0128a59873f6d57ed9966991378ef81751e9df782e073c9f7c7a50cd9c4ad38c656e227e7b06cf0
   languageName: node
   linkType: hard
 
@@ -18,6 +18,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "zenn@workspace:."
   dependencies:
-    zenn-cli: "npm:^0.1.153"
+    zenn-cli: "npm:0.1.154"
   languageName: unknown
   linkType: soft
