@@ -121,7 +121,7 @@ https://blog.jxck.io/entries/2024-07-05/why-are-new-browsers-required.html
 
 ## Firefox 127とChrome 126が安定版に
 
-https://web.dev/blog/web-platform-06-2024
+https://web.dev/blog/web-platform-06-2024?hl=en
 
 6月にWebブラウザに追加された、安定版またはベータ版の機能を紹介する記事です。Firefox 127とChrome 126が安定版になりました。
 
@@ -133,4 +133,4 @@ JSConf JP 2024のCFP募集がはじまりました。
 
 # あとがき
 
-State of JavaScript 2023の[JavaScript Pain Points](https://2023.stateofjs.com/en-US/usage/#top_js_pain_points)でJavaScript周りのきついポイントが紹介されていて面白かったです。
+個人的には、State of JavaScript 2023の[JavaScript Pain Points](https://2023.stateofjs.com/en-US/usage/#top_js_pain_points)でJavaScript周りのきついポイントが紹介されていて面白かったです。
