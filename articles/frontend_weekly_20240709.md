@@ -119,7 +119,7 @@ https://ladybird.org/#about
 
 https://blog.jxck.io/entries/2024-07-05/why-are-new-browsers-required.html
 
-## Firefox 127とChrome 126が安定版に
+## New to the web platform in June
 
 https://web.dev/blog/web-platform-06-2024?hl=en
 
