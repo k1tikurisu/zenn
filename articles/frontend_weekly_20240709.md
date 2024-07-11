@@ -1,5 +1,5 @@
 ---
-title: "Chrome 127 beta の公開など: Cybozu Frontend Weekly (2024-07-09号)" # 目立ったニュースを選ぶ
+title: "State of JavaScript 2023の公開など: Cybozu Frontend Weekly (2024-07-09号)" # 目立ったニュースを選ぶ
 emoji: "👨‍💻" # お好きな絵文字を
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["CybozuFrontendWeekly", "frontend"]
@@ -17,7 +17,7 @@ publication_name: "cybozu_frontend"
 
 # 取り上げた記事・話題
 
-## React & Codemod Announcement（TODO）
+## React & Codemod Announcement
 
 https://codemod.com/blog/react-announcement
 
@@ -125,7 +125,7 @@ https://web.dev/blog/web-platform-06-2024
 
 6月にWebブラウザに追加された、安定版またはベータ版の機能を紹介する記事です。Firefox 127とChrome 126が安定版になりました。
 
-## JSConf JP 2024のCF
+## JSConf JP 2024
 
 https://jsconf.jp/2024/
 
