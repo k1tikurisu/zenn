@@ -51,7 +51,7 @@ Xで話題になった、Lee Robinsonの[ポスト](https://twitter.com/leeerob/
 
 https://nuxt.com/blog/nuxt2-eol
 
-Nuxt2がEOLになることが発表されました。EOL後もNuxt2を使い続ける場合、HeroDevsからNever-Ending Support (NES)が提供されています。
+Nuxt2がEOLになることが発表されました。HeroDevsからNever-Ending Support (NES)が提供されており、EOL後もNuxt2を使い続けることは可能です。
 
 ## Chrome 127 beta
 
