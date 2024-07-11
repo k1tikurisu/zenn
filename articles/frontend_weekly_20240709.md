@@ -93,7 +93,7 @@ https://github.com/reactjs/react.dev/pull/6986
 
 https://sansec.io/research/polyfill-supply-chain-attack
 
-ブラウザ互換性の問題を解決するためのJavaScriptライブラリである、Polyfill.ioがマルウェアで汚染されたことを紹介する記事です。代わりとなる安全なフォークライブラリがCloudflareから提供されています。
+ブラウザ互換性の問題を解決するためのJavaScriptライブラリである、Polyfill.ioがマルウェアで汚染されたことを紹介する記事です。代わりとなるフォークライブラリがCloudflareから提供されています。
 
 https://blog.cloudflare.com/polyfill-io-now-available-on-cdnjs-reduce-your-supply-chain-risk
 
