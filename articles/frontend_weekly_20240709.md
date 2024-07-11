@@ -1,5 +1,5 @@
 ---
-title: "State of JavaScript 2023の公開など: Cybozu Frontend Weekly (2024-07-09号)" # 目立ったニュースを選ぶ
+title: "Chrome 127 betaの公開など: Cybozu Frontend Weekly (2024-07-09号)" # 目立ったニュースを選ぶ
 emoji: "👨‍💻" # お好きな絵文字を
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["CybozuFrontendWeekly", "frontend"]
@@ -39,7 +39,7 @@ https://www.kirupa.com/javascript/deep_dive_array_index_positions.htm
 
 配列のインデックス位置についての考察記事です。
 
-配列に不正なインデックス値を入れるとオブジェクトっぽく扱われるため、配列操作は正確に行うことが大切であると結論づけています。
+配列に不正なインデックス値を入れるとオブジェクトのキーのように扱われるため、配列操作は正確に行うことが大切であると結論づけています。
 
 ## VercelがPPRをNodeランタイムにした件からWebフロントエンドとエッジの動向に迫る
 
@@ -51,7 +51,7 @@ Xで話題になった、Lee Robinsonの[ポスト](https://twitter.com/leeerob/
 
 https://nuxt.com/blog/nuxt2-eol
 
-Nuxt2がEOLになることが発表されました。HeroDevsからNever-Ending Support (NES)が提供されており、EOL後もNuxt2を使い続けることは可能です。
+Nuxt2がEOLになることが発表されました。EOL後もNuxt2を使うユーザのために、HeroDevsからNever-Ending Support (NES)が提供されています。
 
 ## Chrome 127 beta
 
