@@ -45,7 +45,7 @@ https://www.kirupa.com/javascript/deep_dive_array_index_positions.htm
 
 https://zenn.dev/sumiren/articles/7886f5079cced0
 
-Xで話題になった、Lee Robinsonの[ポスト](https://twitter.com/leeerob/status/1780705942734331983)について、その背景と本当にNode.jsランタイムの方が速くなるのか、議論ベースでまとめてくださっている記事です。
+Xで話題になった、Lee Robinsonの[ポスト](https://twitter.com/leeerob/status/1780705942734331983)について、その背景と本当にNode.jsランタイムの方が速くなるのかなど、議論ベースでまとめてくださっている記事です。
 
 ### Nuxt 2 End-of-Life (EOL)
 
