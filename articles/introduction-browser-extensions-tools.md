@@ -114,7 +114,7 @@ Extension.jsは、実用性と迅速なプロトタイピングを念頭に設�
 
 完成品のコードはこちらです。全部全く同じ挙動をします。
 
-https://github.com/k1tikurisu/zenn/tree/main/sources/extensions
+https://github.com/k1tikurisu/browser-extension-tools
 
 ### WXTでの実装
 
@@ -714,154 +714,9 @@ Popups、Background scripts、Content scriptsそれぞれへのビルド前の�
 
 #### 全体の実装
 
-特にフレームワーク特有のルール等はありません。
+特にフレームワーク特有のルール等はありません。ほとんどこれまでのコードのコピペです。詳細な実装は下記を参照してください。
 
-:::details 実装したファイルたち
-
-#### Content scripts（カウンター）の実装
-
-```tsx:content/main.tsx
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import './App.css';
-
-setTimeout(initial, 1000);
-
-function initial() {
-  const rootDiv = document.createElement('div');
-  rootDiv.id = 'extension-root';
-  document.body.appendChild(rootDiv);
-
-  const root = ReactDOM.createRoot(rootDiv);
-  root.render(<App />);
-}
-
-```
-
-```tsx:content/App.tsx
-import { useState } from 'react';
-
-export default function App() {
-  const [count, setCount] = useState(1);
-
-  return (
-    <div className="container">
-      <p className="text">カウント数 {count}</p>
-      <button className="button" type="button" onClick={() => setCount((count) => count + 1)}>
-        カウント
-      </button>
-      <button
-        className="button"
-        type="button"
-        onClick={() => {
-          chrome.runtime.sendMessage({
-            type: 'count',
-            id: count,
-          });
-        }}
-      >
-        取得する
-      </button>
-    </div>
-  );
-}
-```
-
-#### Background scripts（APIリクエスト）の実装
-
-```ts:background.ts
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.type === 'count') {
-    fetchPoke(message.id);
-  }
-});
-
-async function fetchPoke(id: number) {
-  const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    chrome.runtime.sendMessage({
-      type: 'poke',
-      image: data.sprites.front_default,
-      name: data.name,
-    });
-  } catch (error) {
-    console.error('Error fetching poke:', error);
-  }
-}
-```
-
-#### Popup（ポケモンの表示）の実装
-
-```html:popup/index.html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>New Extension</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this extension.</noscript>
-    <div id="root"></div>
-  </body>
-  <script src="./main.tsx"></script>
-</html>
-```
-
-```tsx:popup/main.tsx
-import ReactDOM from 'react-dom/client';
-import App from './App';
-
-const root = ReactDOM.createRoot(document.getElementById('root')!);
-root.render(<App />);
-```
-
-```tsx:popup/App.tsx
-import { useEffect, useState } from 'react';
-import './App.css';
-
-interface PokeMessage {
-  type: string;
-  image: string;
-  name: string;
-}
-
-const Popup = () => {
-  const [pokeData, setPokeData] = useState<{ image: string; name: string }>({
-    image: '',
-    name: '',
-  });
-
-  useEffect(() => {
-    const handleMessage = (message: PokeMessage) => {
-      if (message.type === 'poke') {
-        setPokeData({ image: message.image, name: message.name });
-      }
-    };
-
-    if (!chrome.runtime.onMessage.hasListener(handleMessage)) {
-      chrome.runtime.onMessage.addListener(handleMessage);
-    }
-
-    return () => {
-      chrome.runtime.onMessage.removeListener(handleMessage);
-    };
-  }, []);
-
-  return (
-    <div className="container">
-      <img alt={pokeData.name} src={pokeData.image} className="image" />
-      <span className="name">{pokeData.name}</span>
-    </div>
-  );
-};
-
-export default Popup;
-```
-
-:::
+https://github.com/k1tikurisu/browser-extension-tools/tree/main/extensions/extension-js
 
 #### 感想
 
