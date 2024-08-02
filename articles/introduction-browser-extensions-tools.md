@@ -87,16 +87,21 @@ Extension.jsは、実用性と迅速なプロトタイピングを念頭に設�
 
 ### 処理の流れ
 
-1. [Content scripts](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts)
-   - Webページの左上にカウンターを表示する
-   - カウントボタンを押下すると、カウントされる
-   - 取得するボタンを押下すると、現在のカウント数をBackground scriptsに送信する
-2. [Background scripts](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Background_scripts)
-   - Content scriptsからカウント数を受信する
-   - 受け取ったカウント数を元に[PokéAPI](https://pokeapi.co/)にリクエストを送り、カウント数をidに持つポケモンを取得する
-   - 取得した情報をPopupsに送信する
-3. [Popups](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups)
-   - Background scriptsから受け取ったポケモンの画像と名前を表示する
+#### ①　[Content scripts](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts)（カウンター）の処理
+
+ 1. Webページの左上にカウンターを表示する
+ 2. カウントボタンを押下すると、カウントされる
+ 3. 取得するボタンを押下すると、現在のカウント数をBackground scriptsに送信する
+
+#### ②　[Background scripts](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Background_scripts)（APIリクエスト）の処理
+
+1. Content scriptsからカウント数を受信する
+1. 受け取ったカウント数を元に[PokéAPI](https://pokeapi.co/)にリクエストを送り、カウント数をidに持つポケモンを取得する
+1. 取得した情報をPopupsに送信する
+
+#### ④　[Popups](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups)（ポケモンの表示）の処理
+
+1. Background scriptsから受け取ったポケモンの画像と名前を表示する
 
 ## フレームワーク・ツールごとの実装
 
