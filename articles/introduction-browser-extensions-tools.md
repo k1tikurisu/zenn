@@ -78,8 +78,6 @@ Extension.jsは、実用性と迅速なプロトタイピングを念頭に設�
 
 ### デモ
 
-作成する拡張機能のデモがこちらです。
-
 ![demoのgif](https://storage.googleapis.com/zenn-user-upload/e5ad32b6d8d2-20240801.gif)
 
 カウンター横の取得するボタンを押すと、現在のカウント数をidに持つポケモンがポップアップに表示されます。カウンターはWebページ上に表示されており、ポップアップは拡張機能の[Toolbar Button](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button)を押すと表示されます。
