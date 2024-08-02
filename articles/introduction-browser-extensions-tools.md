@@ -11,7 +11,8 @@ publication_name: "cybozu_frontend"
 この記事は、[CYBOZU SUMMER BLOG FES '24](https://cybozu.github.io/summer-blog-fes-2024/) Frontend Stage DAY 2 の記事です。
 :::
 
-本記事では、ブラウザ拡張機能開発を加速させる　、個人的に注目な3つの拡張機能開発フレームワーク/ツール（WXT、Plasmo、Extension.js）を紹介します。それぞれの特徴、セットアップ方法、実際の開発フローを、同一機能を持つサンプル拡張機能の実装を通じて見ていきます。お好みの拡張機能開発ツールを見つけていただければ嬉しいです。
+本記事では、ブラウザ拡張機能開発を加速させる、個人的に注目な3つの拡張機能開発フレームワーク/ツール（WXT、Plasmo、Extension.js）を紹介します。
+サンプル拡張機能の実装を通して、それぞれの特徴、セットアップ方法、実際の開発フローを見ていきます。お好みの拡張機能開発ツールを見つけていただければ嬉しいです。
 
 ## 各フレームワーク・ツールの紹介
 
@@ -58,10 +59,6 @@ Plasmoに関しての詳細な説明は、次の記事が参考になります�
 
 https://zenn.dev/nado1001/articles/plasmo-browser-extension
 
-:::message
-マニフェストを自動生成するフレームワークを使用する際は、ビルド後のマニフェストに目を通しておくと安心です。想定外の権限が付与されていることがあります。例として、Plasmoは[`@plasmohq/storage`](https://www.npmjs.com/package/@plasmohq/storage)を依存関係に追加すると、使用していなくてもstorageの権限が付与されます。
-:::
-
 ### Extension.js
 
 https://extension.js.org/
@@ -78,27 +75,7 @@ Extension.jsは、実用性と迅速なプロトタイピングを念頭に設�
 - [リモート拡張機能を実行可能](https://extension.js.org/n/getting-started/remote-extension-execution/)
   - URLをコマンド引数として実行すると、対象のブラウザーに対して拡張機能ファイルをダウンロードして実行できる
 
-### その他ツール
-
-その他、拡張機能開発体験を向上するツールの紹介です。
-
-#### CRXJS Vite Plugin
-
-https://crxjs.dev/vite-plugin
-
-下記の記事が参考になります。
-
-https://dev.classmethod.jp/articles/eetann-chrome-extension-by-crxjs/
-
-#### Vite Plugin Web Extension
-
-WXTの開発者である[@aklinker1](https://github.com/aklinker1)が作成したツールです。WXTの前身となるツールです。
-
-https://vite-plugin-web-extension.aklinker1.io/
-
 ## 作成する拡張機能
-
-今回は、WXT、Plasmo、Extension.jsそれぞれで実際に拡張機能を作成します。
 
 ### デモ
 
@@ -306,11 +283,11 @@ function handlePokemonRequest() {
 
 :::
 
-#### Popup（ポケモンの表示）の実装
+#### Popups（ポケモンの表示）の実装
 
 https://wxt.dev/guide/directory-structure/entrypoints/popup.html
 
-`entrypoints/popup.html`または`entrypoints/popup/index.html`はPopupとして解釈されます。
+`entrypoints/popup.html`または`entrypoints/popup/index.html`はPopupsとして解釈されます。
 
 `index.html`ファイルは次のようになっています。
 
@@ -385,7 +362,7 @@ export default Popup;
 #### 感想
 
 - フレームワークそのものの学習コストは低いなと感じました。`entrypoints`でエクスポートする関数もインターフェースが揃っていてわかりやすいです
-- Content scriptsのUIのライフサイクルが隠蔽されてないのは個人的には嬉しいと思いました。
+- Content scriptsのUIのライフサイクルが隠蔽されてないのは個人的には嬉しいと思いました
 - `dev`コマンドで拡張機能込みの開発用ブラウザが起動するのはかなり体験が良かったです。コンポーネント作成中のHMRも安定していました
 - Nuxt風の自動インポートはどれくらいニーズがあるのでしょうか
 - オプション周りをいじっている時は頻繁にエラーで落ちるので、その都度起動し直しているとこんな感じにはなります。開発初期は避けられないかもしれません
@@ -422,7 +399,7 @@ npm i @plasmohq/messaging
 └── package.json
 ```
 
-Content scripts、Background scriptsやPopupなどの[Extension Pages](https://developer.mozilla.org/ja/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages)は、すべて予約されたファイル名で作成する必要があります。詳しくは[Plasmo Framework](https://docs.plasmo.com/framework)の該当する項を参照してください。
+Content scripts、Background scriptsや、Popupsなどの[Extension Pages](https://developer.mozilla.org/ja/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages)は、すべて予約されたファイル名で作成する必要があります。詳しくは[Plasmo Framework](https://docs.plasmo.com/framework)の該当する項を参照してください。
 
 `dev`コマンドで開発用サーバーが起動します。`build/chrome-mv3-dev`を、開発用の拡張機能として読み込むことで、開発を開始できます。
 
@@ -478,7 +455,7 @@ Plasmoも内部的に[ShadowRoot](https://developer.mozilla.org/en-US/docs/Web/A
 
 `<App />`では、取得ボタン押下時にPlasmoのMessaging APIを使用しています。
 
-```ts
+```ts:tsx:contents/App.tsx
 // 取得ボタン押下時に↓を実行
 await sendToBackground({
   name: 'count',
@@ -488,7 +465,7 @@ await sendToBackground({
 });
 ```
 
-`sendToBackground`では、`name`と`body`を指定して、Background scriptsにメッセージを送ることができ、返り値でBackground scriptsからのレスポンスを受け取ることができます。
+`sendToBackground`では、`name`と`body`を指定して、Background scriptsにメッセージを送信でき、返り値でBackground scriptsからのレスポンスを受け取ります。詳しいAPIの対応関係は[TL;DR | Messaging API](https://docs.plasmo.com/framework/messaging#tldr)を参照してください
 
 :::details <App />の中身（カウンターのReactコンポーネント）
 
@@ -575,11 +552,10 @@ const handler: PlasmoMessaging.MessageHandler<{ id: string }> = async (req, _res
 };
 
 export default handler;
-```
-
+```　
 :::
 
-#### Popup（ポケモンの表示）の実装
+#### Popups（ポケモンの表示）の実装
 
 https://docs.plasmo.com/framework/ext-pages#adding-a-popup-page
 
@@ -649,11 +625,10 @@ export default Popup;
 #### 感想
 
 - 基本的にコンポーネントをエクスポートするだけなので、記述量は少なく、考えることも少ないなと感じました
-  - パッと作って試したい時にとても便利だと思いました。
+  - パッと作って試したい時に便利だと思いました
 - Plasmo特有のお作法を覚える必要があるため、少し学習コストは高いのかなと感じます
   - メッセージング周りで少しハマりました
-- HMRはたまにされないときがありますが、右下にリロードボタンが浮かび上がるため、特に気になりませんでした。また、一度も開発サーバーは落ちませんでした。
-- [Parcelの互換性の問題に苦しめられていそう](https://github.com/PlasmoHQ/plasmo/pull/813)なので、少し心配です
+- HMRはたまにされないときがありますが、右下にリロードボタンが浮かび上がるため、特に気になりませんでした。また、一度も開発サーバーは落ちませんでした
 
 ### Extension.jsでの実装
 
@@ -723,7 +698,7 @@ Popups、Background scripts、Content scriptsそれぞれへのビルド前の�
 
 #### 全体の実装
 
-特にフレームワーク特有のルール等はないので、おもむくままに実装します。
+特にフレームワーク特有のルール等はありません。
 
 :::details 実装したファイルたち
 
@@ -879,8 +854,28 @@ export default Popup;
 - やっぱり`dev`コマンドで開発用ブラウザが起動するのはとても体験が良いです
 - クロスブラウザ対応やビルドの設定はやってくれるけどマニフェストなどの根幹部分は自分で書く間合いはちょうど良く感じました
 
+## おまけ（その他ツールを簡単に紹介）
+
+### CRXJS Vite Plugin
+
+https://crxjs.dev/vite-plugin
+
+下記の記事が参考になります。
+
+https://dev.classmethod.jp/articles/eetann-chrome-extension-by-crxjs/
+
+### Vite Plugin Web Extension
+
+WXTの開発者である[@aklinker1](https://github.com/aklinker1)氏が作成した、WXTの前身となるツールです。
+
+https://vite-plugin-web-extension.aklinker1.io/
+
 ## まとめ
 
 今回は、拡張機能を開発するためのフレームワーク・ツールの紹介と、実際にWXT、Plasmo、Extension.jsで拡張機能を実装しました。
 
-開発者体験は全部良かったです。コンポーネントの実装自体が大きく変わるわけではないので、移行はそんなに大変ではないかなと思いました。（PlasmoのAPIをガンガン使っている場合は微妙かも）
+開発者体験は全部良かったです。コンポーネントの実装自体が大きく変わるわけではないので、移行はそんなに大変ではないかなと思いました。（PlasmoのAPIをヘビーに使っている場合は微妙かも）
+
+フレームワークを使用する際は慎重に検討する必要があると思いますが、POC作成等では気にせずガンガン使って加速させると良さそうです。
+
+最後に、マニフェストを自動生成するフレームワークを使用する際は、ビルド後のマニフェストに目を通しておくと安心です。想定外の権限が付与されていることがあります。例として、Plasmoは[`@plasmohq/storage`](https://www.npmjs.com/package/@plasmohq/storage)を依存関係に追加すると、使用していなくてもstorageの権限が付与されます。
