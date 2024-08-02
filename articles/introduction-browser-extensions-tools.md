@@ -11,7 +11,7 @@ publication_name: "cybozu_frontend"
 この記事は、[CYBOZU SUMMER BLOG FES '24](https://cybozu.github.io/summer-blog-fes-2024/) Frontend Stage DAY 2 の記事です。
 :::
 
-本記事では、ブラウザ拡張機能開発を加速させる、個人的に注目な3つの拡張機能開発フレームワーク/ツール（WXT、Plasmo、Extension.js）を紹介します。
+本記事では、ブラウザ拡張機能開発を加速させる、個人的に注目な3つの拡張機能開発フレームワーク・ツール（WXT、Plasmo、Extension.js）を紹介します。
 サンプル拡張機能の実装を通して、それぞれの特徴、セットアップ方法、実際の開発フローを見ていきます。お好みの拡張機能開発ツールを見つけていただければ嬉しいです。
 
 ## 各フレームワーク・ツールの紹介
