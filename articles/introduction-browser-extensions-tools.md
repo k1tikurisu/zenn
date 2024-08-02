@@ -87,6 +87,9 @@ Extension.jsは、実用性と迅速なプロトタイピングを念頭に設�
 
 ### 処理の流れ
 
+![フロー図](https://storage.googleapis.com/zenn-user-upload/eea35420670e-20240802.png)
+*拡張機能のフロー図[^1]*
+
 #### ①　[Content scripts](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts)（カウンター）の処理
 
  1. Webページの左上にカウンターを表示する
@@ -880,3 +883,5 @@ https://vite-plugin-web-extension.aklinker1.io/
 フレームワークを使用する際は慎重に検討する必要があると思いますが、POC作成等では気にせずガンガン使って加速させると良さそうです。
 
 最後に、マニフェストを自動生成するフレームワークを使用する際は、ビルド後のマニフェストに目を通しておくと安心です。想定外の権限が付与されていることがあります。例として、Plasmoは[`@plasmohq/storage`](https://www.npmjs.com/package/@plasmohq/storage)を依存関係に追加すると、使用していなくてもstorageの権限が付与されます。
+
+[^1]: 図を作るのが苦手すぎて嘆いていたところ、[おごし](https://note.com/oyssi/)さんが作ってくれました。。ありがとうございます。
