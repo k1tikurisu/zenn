@@ -87,7 +87,7 @@ Extension.jsは、実用性と迅速なプロトタイピングを念頭に設�
 
 ### 処理の流れ
 
-![フロー図](https://storage.googleapis.com/zenn-user-upload/eea35420670e-20240802.png)
+![フロー図](https://storage.googleapis.com/zenn-user-upload/0adb99a046e6-20240802.png)
 *拡張機能のフロー図[^1]*
 
 - [Content scripts](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts)：特定のWebページのコンテキストで実行される拡張機能の一部です。ここでWebページ上にカウンターを表示します
@@ -106,7 +106,7 @@ Extension.jsは、実用性と迅速なプロトタイピングを念頭に設�
 1. 受け取ったカウント数を元に[PokéAPI](https://pokeapi.co/)にリクエストを送り、カウント数をidに持つポケモンを取得する
 1. 取得したポケモン情報をPopupsに送信する
 
-#### ④　Popups（ポケモンの表示）の処理
+#### ③　Popups（ポケモンの表示）の処理
 
 1. Background scriptsから受け取ったポケモンの画像と名前を表示する
 
