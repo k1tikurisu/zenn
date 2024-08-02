@@ -8,7 +8,7 @@ publication_name: "cybozu_frontend"
 ---
 
 :::message
-この記事は、[CYBOZU SUMMER BLOG FES '24](https://cybozu.github.io/summer-blog-fes-2024/) Frontend Stage DAY 2 の記事です。
+この記事は、[CYBOZU SUMMER BLOG FES '24](https://cybozu.github.io/summer-blog-fes-2024/) (Frontend Stage) DAY 2の記事です。
 :::
 
 本記事では、ブラウザ拡張機能開発を加速させる、個人的に注目な3つの拡張機能開発フレームワーク・ツール（WXT、Plasmo、Extension.js）を紹介します。
