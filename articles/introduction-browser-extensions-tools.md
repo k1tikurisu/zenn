@@ -90,19 +90,23 @@ Extension.jsは、実用性と迅速なプロトタイピングを念頭に設�
 ![フロー図](https://storage.googleapis.com/zenn-user-upload/eea35420670e-20240802.png)
 *拡張機能のフロー図[^1]*
 
-#### ①　[Content scripts](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts)（カウンター）の処理
+- [Content scripts](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts)は、特定のWebページのコンテキストで実行される拡張機能の一部です。Webページ上にカウンターを表示します。
+- [Background scripts](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Background_scripts)は、background pageと呼ばれる特別なコンテキストで実行されます。そのため、CORS等の心配は必要なく、任意のオリジンからリソースを取得できます。
+- [Popups](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups)は、[Toolbar Button](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button)や[Address bar button](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Page_actions)に関連づけられたダイアログです。今回は、Toolbar Buttonをクリックするとダイアログが開き、ポケモンが表示されます。
+
+#### ①　Content scripts（カウンター）の処理
 
  1. Webページの左上にカウンターを表示する
  2. カウントボタンを押下すると、カウントされる
  3. 取得するボタンを押下すると、現在のカウント数をBackground scriptsに送信する
 
-#### ②　[Background scripts](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Background_scripts)（APIリクエスト）の処理
+#### ②　Background scripts（APIリクエスト）の処理
 
 1. Content scriptsからカウント数を受信する
 1. 受け取ったカウント数を元に[PokéAPI](https://pokeapi.co/)にリクエストを送り、カウント数をidに持つポケモンを取得する
 1. 取得した情報をPopupsに送信する
 
-#### ④　[Popups](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups)（ポケモンの表示）の処理
+#### ④　Popups（ポケモンの表示）の処理
 
 1. Background scriptsから受け取ったポケモンの画像と名前を表示する
 
