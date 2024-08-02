@@ -92,7 +92,7 @@ Extension.jsは、実用性と迅速なプロトタイピングを念頭に設�
 
 - [Content scripts](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts)：特定のWebページのコンテキストで実行される拡張機能の一部です。ここでWebページ上にカウンターを表示します
 - [Background scripts](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Background_scripts)：background pageと呼ばれる特別なコンテキストで実行されます。そのため、CORS等の心配は必要なく、任意のオリジンからリソースを取得できます
-- [Popups](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups)：[Toolbar Button](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button)や[Address bar button](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Page_actions)に関連づけられたダイアログです。今回は、Toolbar Buttonをクリックするとダイアログが開き、ポケモンが表示されます。
+- [Popups](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups)：[Toolbar Button](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button)や[Address bar button](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Page_actions)に関連づけられたダイアログです。今回は、Toolbar Buttonをクリックするとダイアログが開き、ポケモンが表示されます
 
 #### ①　Content scripts（カウンター）の処理
 
