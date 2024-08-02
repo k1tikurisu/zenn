@@ -453,7 +453,7 @@ export default Index;
 
 Plasmoも内部的に[ShadowRoot](https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot)が使われており、記述したCSSはWebページに影響を与えません。
 
-`<App />`では、取得ボタン押下時にPlasmoのMessaging APIを使用しています。
+`<App />`では、取得ボタン押下時にPlasmoの[Messaging API](https://docs.plasmo.com/framework/messaging)を使用しています。
 
 ```ts:tsx:contents/App.tsx
 // 取得ボタン押下時に↓を実行
@@ -510,10 +510,8 @@ export const App = () => {
 
 https://docs.plasmo.com/framework/background-service-worker
 
-PlasmoのMessaging APIを利用してメッセージを受信する場合、`name`で指定した値に応じたファイルを作成する必要があります。
+Plasmoの[Messaging API](https://docs.plasmo.com/framework/messaging)を利用すると、`runtime.onMessage`を使わずにファイルベースでメッセージを受信することができます。
 今回は、`count`という`name`でカウント数を受け取るため、`background/messages/count.ts`という場所にファイルを作ります。
-
-Messaging APIとのやりとりはさまざまな方法があるため、詳細は[Messaging API](https://docs.plasmo.com/framework/background-service-worker)を参照してください。
 
 ```ts:background/messages/count.ts
 import type { PlasmoMessaging } from '@plasmohq/messaging';
