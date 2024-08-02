@@ -87,6 +87,29 @@ Extension.jsは、実用性と迅速なプロトタイピングを念頭に設�
 
 ### 処理の流れ
 
+```mermaid
+graph LR
+    A[Content scripts<br>カウンター] --> B[Counts]
+    B --> C[Background scripts<br>APIリクエスト]
+    C <--> |Countsから導いたID| D[PokéAPI]
+    C --> E[Pokemon]
+    E --> F[Popups<br>ポケモン表示]
+    D <--> |Pokemon| E
+
+    %% 位置調整
+    A:::leftAlign
+    B:::leftAlign
+    C:::centerAlign
+    D:::topAlign
+    E:::centerAlign
+    F:::rightAlign
+
+    classDef leftAlign text-align:left
+    classDef centerAlign text-align:center
+    classDef rightAlign text-align:right
+    classDef topAlign text-align:center,position:relative,top:-50px
+```
+
 1. [Content scripts](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts)
    - Webページの左上にカウンターを表示する
    - カウントボタンを押下すると、カウントされる
@@ -202,7 +225,7 @@ UIの構成には、[`createShadowRootUi`](https://wxt.dev/guide/key-concepts/co
 
 :::details <App />の中身（カウンターのReactコンポーネント）
 
-カウンターのReactコンポーネントです。`state`でカウント数を保持し、[`runtime.sendMessage`](https://developer.mozilla.org/ja/docs/Mozilla/Add-ons/WebExtensions/API/runtime/sendMessage)を使って、Background scriptsにカウント数を送信しています。
+カウンターのReactコンポーネントです。`useState`でカウント数を保持し、[`runtime.sendMessage`](https://developer.mozilla.org/ja/docs/Mozilla/Add-ons/WebExtensions/API/runtime/sendMessage)を使って、Background scriptsにカウント数を送信しています。
 
 ```tsx:content/App.tsx
 import { useState } from 'react';
@@ -463,7 +486,7 @@ await sendToBackground({
 });
 ```
 
-`sendToBackground`では、`name`と`body`を指定して、Background scriptsにメッセージを送信でき、返り値でBackground scriptsからのレスポンスを受け取ります。詳しいAPIの対応関係は[TL;DR | Messaging API](https://docs.plasmo.com/framework/messaging#tldr)を参照してください
+`sendToBackground`では、`name`と`body`を指定して、Background scriptsにメッセージを送信でき、返り値でレスポンスを受け取ります。詳しいAPIの対応関係は[TL;DR | Messaging API](https://docs.plasmo.com/framework/messaging#tldr)を参照してください
 
 :::details <App />の中身（カウンターのReactコンポーネント）
 
@@ -521,7 +544,7 @@ const handler: PlasmoMessaging.MessageHandler<{ id: string }> = async (req, res)
 export default handler;
 ```
 
-`req.body`にリクエストの中身が入っています。送信元にレスポンスを返す場合は、`res.send()`を使うことができます。
+`req.body`にリクエストの中身が入っています。送信元にレスポンスを返す場合は、`res.send()`を使うことができます。`req.body`の型は、`MessageHandler`の型引数に明示する必要があります。今後のPR（[#334](https://github.com/PlasmoHQ/plasmo/issues/334)）でリクエストとレスポンスの型をエクスポートすることで型安全にする機能が追加される予定です。
 
 :::details Background scriptsの全体
 
