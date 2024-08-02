@@ -87,29 +87,6 @@ Extension.jsは、実用性と迅速なプロトタイピングを念頭に設�
 
 ### 処理の流れ
 
-```mermaid
-graph LR
-    A[Content scripts<br>カウンター] --> B[Counts]
-    B --> C[Background scripts<br>APIリクエスト]
-    C <--> |Countsから導いたID| D[PokéAPI]
-    C --> E[Pokemon]
-    E --> F[Popups<br>ポケモン表示]
-    D <--> |Pokemon| E
-
-    %% 位置調整
-    A:::leftAlign
-    B:::leftAlign
-    C:::centerAlign
-    D:::topAlign
-    E:::centerAlign
-    F:::rightAlign
-
-    classDef leftAlign text-align:left
-    classDef centerAlign text-align:center
-    classDef rightAlign text-align:right
-    classDef topAlign text-align:center,position:relative,top:-50px
-```
-
 1. [Content scripts](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts)
    - Webページの左上にカウンターを表示する
    - カウントボタンを押下すると、カウントされる
