@@ -20,7 +20,7 @@ publication_name: "cybozu_frontend"
 
 https://wxt.dev/
 
-WXTは、Viteベースのブラウザ拡張フレームワークです。次のような特徴を持っています（トップページから抜粋）。
+WXTは、[Vite](https://vitejs.dev/)ベースのブラウザ拡張フレームワークです。次のような特徴を持っています（トップページから抜粋）。
 
 - [クロスブラウザ対応](https://wxt.dev/guide/key-concepts/web-extension-polyfill.html)
   - Chrome、Firefox、Edge、Safari、その他Chromiumベースのブラウザ
@@ -29,7 +29,6 @@ WXTは、Viteベースのブラウザ拡張フレームワークです。次の�
   - 内部的に[Chrome Launcher](https://github.com/GoogleChrome/chrome-launcher)等を使用
 - [ファイルベースのエントリーポイント](https://wxt.dev/get-started/entrypoints.html)でマニフェストを自動生成
 - [Nuxt風の自動インポート](https://wxt.dev/guide/key-concepts/auto-imports.html)
-  - WXTが提供するライブラリを明示的にインポートする必要がない
 - 公開プロセスの自動化
 - [任意のフロントエンドフレームワークを利用可能](https://wxt.dev/guide/key-concepts/frontend-frameworks.html)
 - 複数のExamples、テンプレートを提供
@@ -41,7 +40,7 @@ WXTは、Viteベースのブラウザ拡張フレームワークです。次の�
 
 https://www.plasmo.com/
 
-Plasmoは、Parcelベースのオールインワンなブラウザ拡張フレームワークです。次のような特徴を持っています（トップページから抜粋）。
+Plasmoは、[Parcel](https://parceljs.org/)ベースのオールインワンなブラウザ拡張フレームワークです。次のような特徴を持っています（トップページから抜粋）。
 
 - ブラウザ拡張機能開発のための有料の[統合プラットフォーム](https://www.plasmo.com/#pricing)の提供
 - ファイルを作成し、コンポーネントをエクスポートする宣言的な開発アプローチ
@@ -384,7 +383,7 @@ export default Popup;
 - フレームワークそのものの学習コストは低いなと感じました。`entrypoints`でエクスポートする関数もインターフェースが揃っていてわかりやすいです
 - UIの`mount`や`unmount`等のライフサイクルを自分で書くのは個人的には嬉しいと思いました。ユーザのインタラクションに応じてUIを表示するなど、複雑な要件でも直感的に記述できそうです
 - `dev`コマンドで拡張機能込みの開発用ブラウザが起動するのはかなり体験が良かったです。コンポーネント作成中のHMRも安定していました
-- オプション周りをいじっている時は頻繁にエラーで落ちるので、その都度起動し直しているとこんな感じにはなります。開発初期は避けられないかもしれません
+- マニフェストのオプション周りをいじっている時はよくエラーで落ちるので、その都度起動し直しているといつの間にかこんな感じになります
 
 ![MacのDockにChromeのアイコンが並んでいる画像](https://storage.googleapis.com/zenn-user-upload/831ce0a87890-20240801.png)
 
@@ -468,13 +467,11 @@ const Index = () => <App />;
 export default Index;
 ```
 
-`config`にはマニフェストのオプション、`getStyle`にはスタイル、`getXxAnchor`にはアンカーをそれぞれ定義し、エクスポートします。基本的にはReact要素をエクスポートするだけでUIを描画できるところが特徴です。
-
-その他のオプションや、ライフサイクルは[Life Cycle of Plasmo CSUI](https://docs.plasmo.com/framework/content-scripts-ui/life-cycle)を参照してください。
+`config`にはマニフェストのオプション、`getStyle`にはスタイル、`getXxAnchor`にはアンカーをそれぞれ定義し、エクスポートします。基本的にはReact要素をエクスポートするだけでUIを描画できるところが特徴です。その他のオプションやライフサイクルは、[Life Cycle of Plasmo CSUI](https://docs.plasmo.com/framework/content-scripts-ui/life-cycle)を参照してください。
 
 Plasmoも内部的に[ShadowRoot](https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot)が使われており、記述したCSSはWebページに影響を与えません。
 
-`<App />`では、取得するボタン押下時にPlasmoの[Messaging API](https://docs.plasmo.com/framework/messaging)である、`sendToBackground`を使用しています。
+`contents/index.tsx`でレンダリングしている`<App />`では、取得するボタン押下時にPlasmoの[Messaging API](https://docs.plasmo.com/framework/messaging)である、`sendToBackground`を使用しています。
 
 ```tsx:contents/App.tsx
 // 取得ボタン押下時に↓を実行
@@ -644,7 +641,7 @@ export default Popup;
 
 - 基本的にコンポーネントをエクスポートするだけなので、記述量は少なく、考えることも少ないなと感じました。パッと作って試したい時に便利です
 - Plasmo特有のお作法を覚える必要があるため、少し学習コストは高いのかなと感じます。メッセージング周りで少しハマりました
-- HMRはたまにされないときがありますが、右下にリロードボタンが浮かび上がるため、特に気になりませんでした。また、一度も開発サーバーは落ちませんでした
+- HMRはたまにされないときがありますが、右下にリロードボタンが浮かび上がるため、特に気になりませんでした
 
 ### Extension.jsでの実装
 
