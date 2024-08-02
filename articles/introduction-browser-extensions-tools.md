@@ -289,8 +289,6 @@ https://wxt.dev/guide/directory-structure/entrypoints/popup.html
 
 `entrypoints/popup.html`または`entrypoints/popup/index.html`はPopupsとして解釈されます。
 
-`index.html`ファイルは次のようになっています。
-
 ```html:entrypoints/popup/index.html
 <!doctype html>
 <html lang="en">
@@ -307,9 +305,9 @@ https://wxt.dev/guide/directory-structure/entrypoints/popup.html
 </html>
 ```
 
-`root`ノードを定義し、`main.tsx`を読み込んでいます。
+React要素をレンダリングするための`root`ノードを定義し、`main.tsx`を読み込みます。
 
-`main.tsx`は次の通りです。
+`main.tsx`で、`root`ノードの中にReact要素をレンダリングします。
 
 ```tsx:entrypoints/popup/main.tsx
 import ReactDOM from 'react-dom/client';
