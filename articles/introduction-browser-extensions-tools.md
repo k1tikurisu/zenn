@@ -12,7 +12,7 @@ publication_name: "cybozu_frontend"
 :::
 
 本記事では、ブラウザ拡張機能開発を加速させる、個人的に注目な3つの拡張機能開発フレームワーク・ツール（WXT、Plasmo、Extension.js）を紹介します。
-サンプル拡張機能の実装を通して、それぞれの特徴、セットアップ方法、実際の開発フローを見ていきます。お好みの拡張機能開発ツールを見つけていただければ嬉しいです。
+サンプル拡張機能の実装を通して、それぞれの特徴、セットアップ方法、実際の開発フローを見ていきます。お好みの拡張機能開発ツールが見つかれば嬉しいです。
 
 ## 各フレームワーク・ツールの紹介
 
@@ -83,7 +83,7 @@ Extension.jsは、実用性と迅速なプロトタイピングを念頭に設�
 
 ![demoのgif](https://storage.googleapis.com/zenn-user-upload/e5ad32b6d8d2-20240801.gif)
 
-カウンター横の取得するボタンを押すと、現在のカウント数をidに持つポケモンがポップアップに表示されるというものです。カウンターはWebページ上に表示されており、ポップアップは拡張機能のアクションボタンを押すと表示されます。
+カウンター横の取得するボタンを押すと、現在のカウント数をidに持つポケモンがポップアップに表示されます。カウンターはWebページ上に表示されており、ポップアップは拡張機能の[Toolbar Button](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button)を押すと表示されます。
 
 ### 処理の流れ
 
@@ -104,7 +104,7 @@ Extension.jsは、実用性と迅速なプロトタイピングを念頭に設�
 
 1. Content scriptsからカウント数を受信する
 1. 受け取ったカウント数を元に[PokéAPI](https://pokeapi.co/)にリクエストを送り、カウント数をidに持つポケモンを取得する
-1. 取得した情報をPopupsに送信する
+1. 取得したポケモン情報をPopupsに送信する
 
 #### ④　Popups（ポケモンの表示）の処理
 
@@ -149,7 +149,7 @@ https://wxt.dev/guide/directory-structure/output.html
 
 WXTでは、`entrypoints`ディレクトリにファイルを追加することでエントリーポイントを作成します。`background`や、`*.content`、`popup/`など、一部のファイル名やパターンは特別で、マニフェストの生成に影響します。詳しくは、[Entrypoints Directory guide](https://wxt.dev/guide/directory-structure/entrypoints/background)を参照してください。リストにないファイルはマニフェストには追加されませんが、実行時にアクセスしたり、読み込むことは可能です。
 
-`dev`コマンドで拡張機能読み込み済みの開発用ブラウザが起動し、開発を開始できます。
+`dev`コマンドで拡張機能込みの開発用ブラウザが起動し、開発を開始できます。
 
 #### マニフェストの作成
 
@@ -337,34 +337,44 @@ root.render(<App />);
 import { useEffect, useState } from 'react';
 import './App.css';
 
+interface PokeMessage {
+  type: string;
+  image: string;
+  name: string;
+}
+
 const Popup = () => {
-  const [image, setImage] = useState('');
-  const [name, setName] = useState('');
+  const [pokeData, setPokeData] = useState<{ image: string; name: string }>({
+    image: '',
+    name: '',
+  });
 
   useEffect(() => {
-    const handler = (message: { type: string; image: string; name: string }) => {
+    const handleMessage = (message: PokeMessage) => {
       if (message.type === 'poke') {
-        setImage(message.image);
-        setName(message.name);
+        setPokeData({ image: message.image, name: message.name });
       }
     };
 
-    chrome.runtime.onMessage.addListener(handler);
+    if (!chrome.runtime.onMessage.hasListener(handleMessage)) {
+      chrome.runtime.onMessage.addListener(handleMessage);
+    }
 
     return () => {
-      chrome.runtime.onMessage.removeListener(handler);
+      chrome.runtime.onMessage.removeListener(handleMessage);
     };
   }, []);
 
   return (
     <div className="container">
-      <img alt={name} src={image} className="image" />
-      <span className="name">{name}</span>
+      <img alt={pokeData.name} src={pokeData.image} className="image" />
+      <span className="name">{pokeData.name}</span>
     </div>
   );
 };
 
 export default Popup;
+
 ```
 
 :::
@@ -372,9 +382,8 @@ export default Popup;
 #### 感想
 
 - フレームワークそのものの学習コストは低いなと感じました。`entrypoints`でエクスポートする関数もインターフェースが揃っていてわかりやすいです
-- Content scriptsのUIのライフサイクルが隠蔽されてないのは個人的には嬉しいと思いました
+- UIの`mount`や`unmount`等のライフサイクルを自分で書くのは個人的には嬉しいと思いました。ユーザのインタラクションに応じてUIを表示するなど、複雑な要件でも直感的に記述できそうです
 - `dev`コマンドで拡張機能込みの開発用ブラウザが起動するのはかなり体験が良かったです。コンポーネント作成中のHMRも安定していました
-- Nuxt風の自動インポートはどれくらいニーズがあるのでしょうか
 - オプション周りをいじっている時は頻繁にエラーで落ちるので、その都度起動し直しているとこんな感じにはなります。開発初期は避けられないかもしれません
 
 ![MacのDockにChromeのアイコンが並んでいる画像](https://storage.googleapis.com/zenn-user-upload/831ce0a87890-20240801.png)
@@ -411,7 +420,7 @@ npm i @plasmohq/messaging
 
 Content scripts、Background scriptsや、Popupsなどの[Extension Pages](https://developer.mozilla.org/ja/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages)は、すべて予約されたファイル名で作成する必要があります。詳しくは[Plasmo Framework](https://docs.plasmo.com/framework)の該当する項を参照してください。
 
-`dev`コマンドで開発用サーバーが起動します。`build/chrome-mv3-dev`を、開発用の拡張機能として読み込むことで、開発を開始できます。
+`dev`コマンドで開発用サーバーが起動します。生成された`build/chrome-mv3-dev`を、開発用の拡張機能として読み込むことで、開発を開始できます。
 
 #### マニフェストの作成
 
@@ -443,29 +452,31 @@ export const config: PlasmoCSConfig = {
   matches: ['*://*/*'],
 };
 
-// style
+// スタイル
 export const getStyle: PlasmoGetStyle = () => {
   const style = document.createElement('style');
   style.textContent = styleText;
   return style;
 };
 
+//　Content scriptsで描画するUIの位置（アンカー）を指定
 export const getInlineAnchor: PlasmoGetInlineAnchor = () => document.body;
 
+// レンダリングするReact要素
 const Index = () => <App />;
 
 export default Index;
 ```
 
-`config`にはマニフェストのオプション、`getStyle`にはスタイル、`getXxAnchor`にはContent scriptsを描画する場所をそれぞれ定義し、エクスポートします。基本的にはコンポーネントをエクスポートするだけでUIを描画できるところが特徴です。
+`config`にはマニフェストのオプション、`getStyle`にはスタイル、`getXxAnchor`にはアンカーをそれぞれ定義し、エクスポートします。基本的にはReact要素をエクスポートするだけでUIを描画できるところが特徴です。
 
 その他のオプションや、ライフサイクルは[Life Cycle of Plasmo CSUI](https://docs.plasmo.com/framework/content-scripts-ui/life-cycle)を参照してください。
 
 Plasmoも内部的に[ShadowRoot](https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot)が使われており、記述したCSSはWebページに影響を与えません。
 
-`<App />`では、取得ボタン押下時にPlasmoの[Messaging API](https://docs.plasmo.com/framework/messaging)を使用しています。
+`<App />`では、取得するボタン押下時にPlasmoの[Messaging API](https://docs.plasmo.com/framework/messaging)である、`sendToBackground`を使用しています。
 
-```ts:tsx:contents/App.tsx
+```tsx:contents/App.tsx
 // 取得ボタン押下時に↓を実行
 await sendToBackground({
   name: 'count',
@@ -479,9 +490,9 @@ await sendToBackground({
 
 :::details <App />の中身（カウンターのReactコンポーネント）
 
-カウンターのReactコンポーネントです。`@plasmohq/messaging`の`sendToBackground`を使ってBackground scriptsにカウント数を送信しています。
+カウンターのReactコンポーネントです。
 
-今回はPopupsでレスポンスを受け取るため、返り値は受け取りません。
+今回はPopupsでレスポンスを受け取るため、`sendToBackground`の返り値は受け取りません。
 
 ```tsx:contents/App.tsx
 import { sendToBackground } from '@plasmohq/messaging';
@@ -533,8 +544,7 @@ const handler: PlasmoMessaging.MessageHandler<{ id: string }> = async (req, res)
 export default handler;
 ```
 
-`req.body`にリクエストの中身が入っています。送信元にレスポンスを返す場合は、`res.send()`を使うことができます。`req.body`の型は、`MessageHandler`の型引数に明示する必要があります。今後のPR（[#334](https://github.com/PlasmoHQ/plasmo/issues/334)）でリクエストとレスポンスの型をエクスポートすることで型安全にする機能が追加される予定です。
-
+`req.body`にリクエストの中身が入っています。送信元にレスポンスを返す場合は、`res.send()`を使うことができます。`req.body`の型は、`MessageHandler`の型引数に明示する必要があります。[^2]
 :::details Background scriptsの全体
 
 今回は、送信元ではなくPopupsにポケモンの情報を送りたいので、[`runtime.sendMessage`](https://developer.mozilla.org/ja/docs/Mozilla/Add-ons/WebExtensions/API/runtime/sendMessage)を使用しています。
@@ -632,10 +642,8 @@ export default Popup;
 
 #### 感想
 
-- 基本的にコンポーネントをエクスポートするだけなので、記述量は少なく、考えることも少ないなと感じました
-  - パッと作って試したい時に便利だと思いました
-- Plasmo特有のお作法を覚える必要があるため、少し学習コストは高いのかなと感じます
-  - メッセージング周りで少しハマりました
+- 基本的にコンポーネントをエクスポートするだけなので、記述量は少なく、考えることも少ないなと感じました。パッと作って試したい時に便利です
+- Plasmo特有のお作法を覚える必要があるため、少し学習コストは高いのかなと感じます。メッセージング周りで少しハマりました
 - HMRはたまにされないときがありますが、右下にリロードボタンが浮かび上がるため、特に気になりませんでした。また、一度も開発サーバーは落ちませんでした
 
 ### Extension.jsでの実装
@@ -669,7 +677,7 @@ npx extension create . --template=react-typescript
 
 フレームワークではないため、予約されたファイル名等はありません。
 
-`dev`コマンドで開発用ブラウザが立ち上がり、開発を開始できます。
+`dev`コマンドで拡張機能込みの開発用ブラウザが立ち上がり、開発を開始できます。
 
 #### マニフェストの作成
 
@@ -862,6 +870,16 @@ export default Popup;
 - やっぱり`dev`コマンドで開発用ブラウザが起動するのはとても体験が良いです
 - クロスブラウザ対応やビルドの設定はやってくれるけどマニフェストなどの根幹部分は自分で書く間合いはちょうど良く感じました
 
+## まとめ
+
+今回は、拡張機能を開発するためのフレームワーク・ツールの紹介と、実際にWXT、Plasmo、Extension.jsで拡張機能を実装しました。
+
+開発者体験は全部良かったです。コンポーネントの実装自体が大きく変わるわけではないので、移行はそんなに大変ではないかなと思いました。（PlasmoのAPIをヘビーに使っている場合は微妙かも）
+
+フレームワークを使用する際は慎重に検討する必要があると思いますが、PoC作成等では気にせずガンガン使って加速させると良さそうです。
+
+最後に、マニフェストを自動生成するフレームワークを使用する際は、ビルド後のマニフェストに目を通しておくと安心です。想定外の権限が付与されていることがあります。例として、Plasmoは[`@plasmohq/storage`](https://www.npmjs.com/package/@plasmohq/storage)を依存関係に追加すると、使用していなくてもstorageの権限が付与されます。
+
 ## おまけ（その他ツールを簡単に紹介）
 
 ### CRXJS Vite Plugin
@@ -878,14 +896,5 @@ WXTの開発者である[@aklinker1](https://github.com/aklinker1)氏が作成�
 
 https://vite-plugin-web-extension.aklinker1.io/
 
-## まとめ
-
-今回は、拡張機能を開発するためのフレームワーク・ツールの紹介と、実際にWXT、Plasmo、Extension.jsで拡張機能を実装しました。
-
-開発者体験は全部良かったです。コンポーネントの実装自体が大きく変わるわけではないので、移行はそんなに大変ではないかなと思いました。（PlasmoのAPIをヘビーに使っている場合は微妙かも）
-
-フレームワークを使用する際は慎重に検討する必要があると思いますが、POC作成等では気にせずガンガン使って加速させると良さそうです。
-
-最後に、マニフェストを自動生成するフレームワークを使用する際は、ビルド後のマニフェストに目を通しておくと安心です。想定外の権限が付与されていることがあります。例として、Plasmoは[`@plasmohq/storage`](https://www.npmjs.com/package/@plasmohq/storage)を依存関係に追加すると、使用していなくてもstorageの権限が付与されます。
-
 [^1]: 図を作るのが苦手すぎて嘆いていたところ、[おごし](https://note.com/oyssi/)さんが作ってくれました。。ありがとうございます。
+[^2]: 今後のPR（[#334](https://github.com/PlasmoHQ/plasmo/issues/334)）でリクエストとレスポンスの型をエクスポートすることで型安全にする機能が追加される予定です。
