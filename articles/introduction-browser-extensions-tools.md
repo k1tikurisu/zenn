@@ -3,7 +3,7 @@ title: "【2024年夏】ブラウザ拡張機能開発を加速するフレー�
 emoji: "🧩"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["拡張機能", "chrome拡張機能"]
-published: false
+published: true
 publication_name: "cybozu_frontend"
 ---
 
