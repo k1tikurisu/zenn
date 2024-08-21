@@ -79,8 +79,7 @@ https://letsencrypt.org/2024/07/23/replacing-ocsp-with-crls.html
 
 Let's Encryptが、Online Certificate Status Protocol (OCSP)のサポートを終了し、Certificate Revocation Lists (CRLs) に移行することを発表する記事です。
 
-この変更により、Webサイトやそのサイトを訪問するユーザーは影響を受けませんが、一部の非ブラウザソフトウェアは影響を受ける可能性があります。
-VPNなどのブラウザ以外の通信を保護するためにLet's Encrypt証明書を使用している場合、OCSP URLがない状態でも正常に動作することを確認する必要があります。
+Webサイトやそのサイトを訪問するユーザーは影響を受けませんが、一部の非ブラウザソフトウェアは影響を受ける可能性があります。VPNなどブラウザ以外の通信を保護するためにLet's Encrypt証明書を使用している場合、OCSP URLがない状態でも正常に動作することを確認する必要があります。
 
 ### Keyboard-Only Scrolling Areas
 
