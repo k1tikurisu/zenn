@@ -166,3 +166,7 @@ https://dl.acm.org/doi/10.1145/3656431
 https://security.googleblog.com/2024/07/improving-security-of-chrome-cookies-on.html
 
 Chrome 127で導入された、WindowsのCookieのセキュリティを向上する、App-Bound Encryptionという保護レイヤーを紹介する記事です。
+
+## あとがき
+
+Storybookの進化がすごいですね、ちゃんと知識をアップデートしていかないとと思いました。
