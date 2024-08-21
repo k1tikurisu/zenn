@@ -21,13 +21,13 @@ publication_name: "cybozu_frontend"
 
 https://github.com/vercel/next.js/pull/63051
 
-Next.jsの設定ファイルをTypeScriptで記述するサポートが追加されました。`next.config.ts`に設定ファイルを記述することができます。
+Next.jsの設定ファイルをTypeScriptで書けるようになりました。`next.config.ts`に設定ファイルを記述することができます。
 
 ### Using pnpm on Heroku
 
 https://blog.heroku.com/using-pnpm-on-heroku
 
-HerokuのNode.jsビルドパックが、パッケージマネージャの1つであるpnpmをサポートしました。pnpmを使用することで、npmと比べてデプロイ時のパッケージインストールが10~40%程度高速になりました。
+HerokuのNode.js buildpackが、パッケージマネージャの1つであるpnpmをサポートしました。pnpmを使用することで、npmと比べてデプロイ時のパッケージインストールが10~40%程度高速になるようです。
 
 ### Page Speed Benchmarks | SpeedCurve
 
@@ -35,7 +35,7 @@ https://app.speedcurve.com/benchmarks/japan/media/fast/start-render/
 
 SpeedCurveというサービスが提供する、Webサイトのページスピードベンチマークです。主要なWebサイトのページスピードを計測し、ランキングを提供しています。
 
-また、次の記事で、主要なWebサイトが見落としがちなパフォーマンス悪化の原因について解説しています。
+次の記事で、主要なWebサイトが見落としがちなパフォーマンス悪化の原因について解説しています。
 
 https://www.speedcurve.com/blog/15-neglected-page-speed-optimizations/
 
@@ -51,7 +51,7 @@ https://react-spectrum.adobe.com/releases/2024-07-22.html
 
 React Spectrumの7月のリリースノートです。
 
-コンポーネントの仮想化の実装を大幅に改善し、バンドルサイズの縮小と、パフォーマンス・安定性の向上が実現されました。大きなテーブルの1フレームあたりのレンダリング時間が14倍高速化されました。
+コンポーネントの仮想化の実装を大幅に改善し、バンドルサイズの縮小と、パフォーマンス・安定性の向上が実現されました。大きなテーブルの1フレームあたりのレンダリング時間が14倍高速化されています。
 
 ### Understanding the ‘Why’ behind some basic UI design practices
 
@@ -77,12 +77,16 @@ Deno v1.45.4でDenoのVSCode拡張が正常に機能するようになってい�
 
 https://letsencrypt.org/2024/07/23/replacing-ocsp-with-crls.html
 
-Let's Encryptは、Online Certificate Status Protocol (OCSP)のサポートを終了し、Certificate Revocation Lists (CRLs) に移行する意向を発表しました。この変更により、Webサイトやそのサイトを訪問するユーザーは影響を受けませんが、一部の非ブラウザソフトウェアは影響を受ける可能性があります。
+Let's Encryptが、Online Certificate Status Protocol (OCSP)のサポートを終了し、Certificate Revocation Lists (CRLs) に移行することを発表する記事です。
+
+この変更により、Webサイトやそのサイトを訪問するユーザーは影響を受けませんが、一部の非ブラウザソフトウェアは影響を受ける可能性があります。
 VPNなどのブラウザ以外の通信を保護するためにLet's Encrypt証明書を使用している場合、OCSP URLがない状態でも正常に動作することを確認する必要があります。
 
 ### Keyboard-Only Scrolling Areas
 
-キーボード操作のみで、スクロール可能な領域にアクセスできることの重要性について言及している記事です。
+https://adrianroselli.com/2022/06/keyboard-only-scrolling-areas.html
+
+キーボード操作のみでスクロール可能な領域にアクセスできることの重要性と、非対応ブラウザでのユーザ向けソリューションについて言及している記事です。
 
 スクロールコンテナをキーボードフォーカス可能にする機能の主要ブラウザの実装状況は次のとおりです
 
@@ -102,7 +106,7 @@ https://storybook.js.org/blog/storybook-8-2/
 
 Storybook 8.2がリリースされました。主に次の機能が追加されました。
 
-- Jest/Vitest/Playwright/Cypressなどのテストツールと同等の機能の提供
+- Jest/Vitest/Playwright/Cypressなどのテストツールと同等のtest hooksの提供
 - Portable storiesをReact、Vue3でサポート（Svelteはexperimental）
 - 18のパッケージを1つのコアパッケージ（`storybook`）に統合
 - ドキュメントサイトを改善し、各フレームワークごとに導入方法を記載
@@ -111,7 +115,7 @@ Storybook 8.2がリリースされました。主に次の機能が追加され�
 
 https://vercel.com/blog/turbopack-moving-homes
 
-Vercelが開発しているJavaScript/TypeScriptバンドラであるTurbopackの最新情報についての記事です。主にポイントは次の通りです。
+Vercelが開発しているJavaScript/TypeScriptバンドラであるTurbopackの最新情報についての記事です。主なポイントは次の通りです。
 
 - TurbopackはNext.jsのテストケースを100%パスしており、Next.jsのExamplesでTurbopackが動作する
 - 上位300のnpmパッケージ（指標には言及がありませんでした）がTurbopackでビルドできることを確認
@@ -130,7 +134,7 @@ https://web.dev/blog/web-platform-07-2024?hl=en
 
 https://www.publickey1.jp/blog/24/rustservowebverso.html
 
-NLnet Foundationは、Rust製ブラウザエンジン「Servo」を用いたWebブラウザ「Verso」の開発プロジェクトの立ち上げを発表しました。Electron代替を目指すフレームワークTauriの開発チームが主導するそうです。
+NLnet Foundationは、Rust製ブラウザエンジン「Servo」を用いたWebブラウザ「Verso」の開発プロジェクトの立ち上げを発表しました。Electron代替を目指すフレームワーク[Tauri](https://tauri.app/)の開発チームが主導するそうです。
 
 ### Node v22.6.0 (Current)
 
@@ -140,7 +144,7 @@ Node.jsのv22.6.0がリリースされました。
 
 `--experimental-strip-types`フラグを使用することで、TypeScriptファイルを実行できるようになりました。ただし、次のような制約があります。
 
-- 型アノテーションのみに対応
+- インライン型アノテーションのみに対応
 - モジュールインポートに明示的なファイル拡張子が必要
 - 型のインポートには`type`キーワードを使う必要がある
 - `node_modules`はデフォルトでTypeScriptが無効化される
@@ -155,7 +159,7 @@ https://user-first.ikyu.co.jp/entry/2024/08/05/142626
 
 https://dl.acm.org/doi/10.1145/3656431
 
-新しい正規表現アルゴリズムを提案する論文です。計算量爆発をしない新しい正規表現アルゴリズムで、すでにV8にマージされているようです。
+計算量爆発をしない新しい正規表現アルゴリズムを提案する論文です。すでにV8にマージされているようです。
 
 ### Google Online Security Blog: Improving the security of Chrome cookies on Windows
 
