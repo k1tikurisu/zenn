@@ -33,9 +33,9 @@ HerokuのNode.js buildpackが、パッケージマネージャの1つであるpn
 
 https://app.speedcurve.com/benchmarks/japan/media/fast/start-render/
 
-SpeedCurveというサービスが提供する、Webサイトのページスピードベンチマークです。主要なWebサイトのページスピードを計測し、ランキングを提供しています。
+[SpeedCurve](https://www.speedcurve.com/)というサービスが提供する、主要なWebサイトのパフォーマンスのベンチマークが確認できるダッシュボードです。
 
-次の記事で、主要なWebサイトが見落としがちなパフォーマンス悪化の原因について解説しています。
+次の記事では、このダッシュボードで公開されているパフォーマンス結果を元に、多くのサイトで活用されていないパフォーマンスの最適化方法を紹介しています。
 
 https://www.speedcurve.com/blog/15-neglected-page-speed-optimizations/
 
@@ -69,9 +69,7 @@ https://bootcamp.uxdesign.cc/understanding-the-why-behind-some-basic-ui-design-p
 
 https://github.com/denoland/vscode_deno/issues/1131
 
-DenoのVSCode拡張機能が、Deno workspaceを含むパッケージのインポートに失敗することを報告するIssueがCloseされました。
-
-Deno v1.45.4でDenoのVSCode拡張が正常に機能するようになっています。
+[Deno v1.45](https://deno.com/blog/v1.45)で実装されたworkspace機能がVSCode拡張で正しく動かなかった不具合が、v1.45.4で修正されました。
 
 ### Intent to End OCSP Service
 
