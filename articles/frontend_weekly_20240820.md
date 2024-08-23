@@ -27,7 +27,7 @@ Next.jsの設定ファイルをTypeScriptで書けるようになりました。
 
 https://blog.heroku.com/using-pnpm-on-heroku
 
-HerokuのNode.js buildpackが、パッケージマネージャの1つであるpnpmをサポートしました。pnpmを使用することで、npmと比べてデプロイ時のパッケージインストールが10~40%程度高速になるようです。
+HerokuのNode.js buildpackが、パッケージマネージャの1つであるpnpmをサポートしました。pnpmを使用すると、npmに比べてデプロイ時のパッケージインストールが10~40%程度高速になるようです。
 
 ### Page Speed Benchmarks | SpeedCurve
 
@@ -69,13 +69,13 @@ https://bootcamp.uxdesign.cc/understanding-the-why-behind-some-basic-ui-design-p
 
 https://github.com/denoland/vscode_deno/issues/1131
 
-[Deno v1.45](https://deno.com/blog/v1.45)で実装されたworkspace機能がVSCode拡張で正しく動かなかった不具合が、v1.45.4で修正されました。
+[Deno v1.45](https://deno.com/blog/v1.45)で実装されたworkspace機能がVSCode拡張で正しく動かなかった不具合が、Deno v1.45.4で修正されました。
 
 ### Intent to End OCSP Service
 
 https://letsencrypt.org/2024/07/23/replacing-ocsp-with-crls.html
 
-Let's Encryptが、Online Certificate Status Protocol (OCSP)のサポートを終了し、Certificate Revocation Lists (CRLs) に移行することを発表する記事です。
+Let's Encryptが、Online Certificate Status Protocol (OCSP)のサポートを終了し、Certificate Revocation Lists (CRLs) に移行することを発表しました。
 
 Webサイトやそのサイトを訪問するユーザーは影響を受けませんが、一部の非ブラウザソフトウェアは影響を受ける可能性があります。VPNなどブラウザ以外の通信を保護するためにLet's Encrypt証明書を使用している場合、OCSP URLがない状態でも正常に動作することを確認する必要があります。
 
@@ -87,15 +87,15 @@ https://adrianroselli.com/2022/06/keyboard-only-scrolling-areas.html
 
 スクロールコンテナをキーボードフォーカス可能にする機能の主要ブラウザの実装状況は次のとおりです
 
-- Firefox: サポート済みです
-- Chrome: 127で追加され、128で全ユーザが利用可能になる予定です
-- Safari: サポートしていません
+- Firefox: サポート済み
+- Chrome: 127で追加され、128で全ユーザが利用可能になる予定
+- Safari: 未サポート
 
 ### Line-breakable `<ruby>` and CSS ruby-align property
 
-https://developer.chrome.com/blog/line-breakable-ruby
+https://developer.chrome.com/blog/line-breakable-ruby?hl=en
 
-Chrome 128で`<ruby>`が改行できるようになりました。`ruby-align`でルビの位置を調整できます。
+Chrome 128以降で`<ruby>`が改行できるようになります。`ruby-align`でルビの位置を調整できます。
 
 ### Storybook 8.2
 
@@ -115,7 +115,7 @@ https://vercel.com/blog/turbopack-moving-homes
 Vercelが開発しているJavaScript/TypeScriptバンドラであるTurbopackの最新情報についての記事です。主なポイントは次の通りです。
 
 - TurbopackはNext.jsのテストケースを100%パスしており、Next.jsのExamplesでTurbopackが動作する
-- 上位300のnpmパッケージ（指標には言及がありませんでした）がTurbopackでビルドできることを確認
+- 上位300のnpmパッケージ（指標には言及がありませんでした）がTurbopackでビルドできることを確認した
 - Vercel.comの開発に使用されている
 - Turbopackのコードは今後`vercel/turbo`から`vercel/next.js`に移動する
   - 開発速度向上が目的でNext.jsのみをサポートすることを意図していない
