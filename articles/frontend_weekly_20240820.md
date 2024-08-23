@@ -1,6 +1,6 @@
 ---
 title: "新たなWebブラウザ「Verso」など: Cybozu Frontend Weekly (2024-08-20号)" # 目立ったニュースを選ぶ
-emoji: "📘" # お好きな絵文字を
+emoji: "🌐" # お好きな絵文字を
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["CybozuFrontendWeekly", "frontend"]
 published: false
