@@ -77,7 +77,7 @@ Chrome 129から、DevToolsのパフォーマンスパネルでCore Web Vitals�
 
 https://github.com/prisma/prisma/releases/tag/5.20.0
 
-`strictUndefinedChecks`がPreview機能として追加されました。Prismaでは、`where`句に`undefined`が入ると条件なしで検索するため、意図せずデータが漏洩したり損失してしまうことがありました。`strictUndefinedChecks`を有効化することで、`undefined`をエラーとして検出してくれるようになります。次のメジャーバージョンからデフォルトで有効になる予定です。
+`strictUndefinedChecks`がPreview機能として追加されました。`strictUndefinedChecks`を有効化すると、Prismaクエリの`undefined`をエラーとして検出してくれます。Prismaでは、`where`句に`undefined`が入ると条件なしで検索するため、意図せずデータが漏洩したり損失してしまう危険性がありました。この機能は次のメジャーバージョンからデフォルトで有効になる予定です。
 
 ### Oxc Transformer Alpha | The JavaScript Oxidation Compiler
 
