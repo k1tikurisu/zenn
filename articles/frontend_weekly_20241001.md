@@ -145,6 +145,6 @@ https://github.com/whatwg/meta/issues/326
 
 ## あとがき
 
-Prismaの`undefined`で苦しめられた人は少なくないと思うので、嬉しい変更だなと思います。元になったIssueでは、`undefined`によってテーブルごと消えてしまったようです。
+Prismaの`undefined`に苦い思いでがある人は少なくないと思うので、嬉しい変更だなと思います。元になったIssueでは、`undefined`によってテーブルごと消えてしまったようです。
 
 https://github.com/prisma/prisma/issues/20169
