@@ -1,6 +1,6 @@
 ---
-title: "新たなWebブラウザ「Verso」など: Cybozu Frontend Weekly (2024-10-01号)" # 目立ったニュースを選ぶ
-emoji: "" # お好きな絵文字を
+title: "Cloudflareの大幅アップデートなど: Cybozu Frontend Weekly (2024-10-01号)" # 目立ったニュースを選ぶ
+emoji: "🚀" # お好きな絵文字を
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["CybozuFrontendWeekly", "frontend"]
 published: false
@@ -21,24 +21,24 @@ publication_name: "cybozu_frontend"
 
 https://webkit.org/blog/15865/webkit-features-in-safari-18-0/
 
-Safari 18.0がリリースされました。ポイントとなる機能は次の通りです。
+Safari 18.0がリリースされました。一部機能を抜粋します。
 
-- Distraction Control：ウェブブラウジング中の邪魔な要素を隠す
-- Video Viewer：ビデオを全画面表示する
-- iPhone Mirroring and remote inspection：
+- Distraction Control
+  - ウェブブラウジング中の邪魔な要素を非表示にできる
+- iPhone Mirroring and remote inspection
+  - MacからiPhoneをミラーリングし、リモートiOS上のWebサイトのテストやデバッグができる
 - CSS
-  - View Transition API
-  - Style Queries
+  - View Transition APIのサポート
+  - Style Queriesのサポート
 - HTML
-  - インライン予測テキスト
+  - ユーザが入力しようとしている内容を予測し補完するWriting Suggestion
   - Switch入力の触覚フィードバック（切り替えると、ブルってなる）
   - 日付・時間入力フィールドのアクセシビリティ改善
 - JavaScript
   - Unicode 15.1.0のRegExpサポート
   - `URL.parse()`の追加
-- View Transitionの実装が揃う
 
-追加・修正が多いため、
+そのほか、たくさんの追加・修正が行われています。
 
 ### 1.3 Million Subtests
 
@@ -70,13 +70,13 @@ Cloudflareの「Builder Day 2024」で発表された18の主要なアップデ�
 
 https://developer.chrome.com/blog/web-vitals-extension?hl=en
 
-Chrome 129から、DevToolsのパフォーマンスパネルでCore Web Vitalsの計測結果を確認できるようになりました。Chromeチームが運営する「[Web Vitals](https://chromewebstore.google.com/detail/web-vitals/ahfhijdlegdabablpippeagghigmibma)」拡張機能で提供される機能を順次パフォーマンスパネルに移行し、2025年1月までにWeb Vitals拡張機能のサポートを終了する予定です。
+Chrome 129から、DevToolsのパフォーマンスパネルでCore Web Vitalsの計測結果を確認できるようになりました。Chromeチームが運営するChrome拡張機能「[Web Vitals](https://chromewebstore.google.com/detail/web-vitals/ahfhijdlegdabablpippeagghigmibma)」で提供される機能を順次パフォーマンスパネルに移行し、2025年1月までにWeb Vitals拡張機能のサポートを終了する予定です。
 
 ### Prisma 5.20.0 release
 
 https://github.com/prisma/prisma/releases/tag/5.20.0
 
-`strictUndefinedChecks`がPreview機能として追加されました。Prismaでは、`where`節に`undefined`が入ると条件なしで検索するため、意図せずデータが漏洩したり、データが損失してしまうことがありました。`strictUndefinedChecks`を有効化することで、`undefined`をエラーとして検出してくれるようになります。次のメジャーバージョンからデフォルトで有効になる予定です。
+`strictUndefinedChecks`がPreview機能として追加されました。Prismaでは、`where`句に`undefined`が入ると条件なしで検索するため、意図せずデータが漏洩したり損失してしまうことがありました。`strictUndefinedChecks`を有効化することで、`undefined`をエラーとして検出してくれるようになります。次のメジャーバージョンからデフォルトで有効になる予定です。
 
 ### Oxc Transformer Alpha | The JavaScript Oxidation Compiler
 
@@ -94,7 +94,7 @@ MDNの[Browser Compatibility Data（BCD）](https://github.com/mdn/browser-compa
 
 https://opennext.js.org/
 
-OpenNextは、Next.jsをVercel以外のさまざまなプラットフォームでホスティングできるようにするオープンソースの取り組みです。現在は、AWSやCloudflareのアダプタを提供しています。Next.jsの全機能をサポートすることを目指し、コミュニティ手動で開発が進められています。
+OpenNextは、Next.jsをVercel以外のさまざまなプラットフォームでホスティングできるようにするオープンソースの取り組みです。現在は、AWSやCloudflareのアダプタを提供しています。Next.jsの全機能をサポートすることを目指し、コミュニティ主導で開発が進められています。
 
 ### Removing Corepack - Speaker Deck
 
@@ -127,9 +127,9 @@ https://storybook.js.org/blog/storybook-8-3/
 Storybook 8.3がリリースされました。一部を抜粋します。
 
 - First-class Vitest integration
-  - Vitestのbrowser modeを使ってStoryのテストがexperimentalでできるように
+  - Vitestのbrowser modeを使ってStoryのテストができる機能がexperimentalでリリース
 - Next.js Vite framework
-  - Next.jsをサポートするためにNext.js環境をエミュレートするViteプラグインが作成
+  - Next.jsをサポートするためにNext.js環境をエミュレートするViteプラグインを作成
 - Experimental story globals
   - Story globalsというstoryごとに簡単にview portやbackground、localeを変更できるapiがexperimentalでリリース
 
@@ -145,4 +145,6 @@ https://github.com/whatwg/meta/issues/326
 
 ## あとがき
 
-Storybookの進化がすごいですね、ちゃんと知識をアップデートしていかないとと思いました。
+Prismaの`undefined`で苦しめられた人は少なくないと思うので、嬉しい変更だなと思います。元になったIssueでは、`undefined`によってテーブルごと消えてしまったようです。
+
+https://github.com/prisma/prisma/issues/20169
