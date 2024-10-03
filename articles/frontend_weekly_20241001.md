@@ -58,7 +58,7 @@ Cloudflareの「Builder Day 2024」で発表された18の主要なアップデ�
 - Improved Node.js compatibility is now GA
   - WorkersランタイムでのNode APIの数が2倍になり、Node.jsとの互換性がGAに
 - Build frontend applications on Workers with Static Asset Hosting
-  - AstroやNext.jsで生成した静的アセットをWorkerに直接デプロイできるように
+  - AstroやNext.jsで生成した静的アセットをWorkersに直接デプロイできるように
   - https://developers.cloudflare.com/workers/static-assets/
 - Cloudflare joins OpenNext to deploy Next.js apps to Workers
   - Next.jsアプリケーションをOpenNextを使ってWorkersにデプロイできるように
