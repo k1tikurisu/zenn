@@ -33,7 +33,7 @@ Safari 18.0がリリースされました。一部機能を抜粋します。
   - Style Queriesのサポート
 - HTML
   - ユーザが入力しようとしている内容を予測し補完するWriting Suggestion
-  - Switch入力の触覚フィードバック（切り替えると、ブルってなる）
+  - Switch入力の触覚フィードバック（On/Offを切り替えると振動が走る）
   - 日付・時間入力フィールドのアクセシビリティ改善
 - JavaScript
   - Unicode 15.1.0のRegExpサポート
@@ -101,7 +101,7 @@ OpenNextは、Next.jsをVercel以外のさまざまなプラットフォーム�
 
 https://speakerdeck.com/yosuke_furukawa/removing-corepack
 
-Node.jsのPackage Maintenance Working Group（PMWG）がCorepackをNode.jsの配布から削除する計画と、その経緯をまとめたスライドです。否定の声も大きいことから、本当に削除されるかはまだわからないと結論づけています。
+[Node.js Takes Steps Towards Removing Corepack - Socket](https://socket.dev/blog/node-js-takes-steps-towards-removing-corepack)を元に、CorepackをNode.jsの配布から削除する計画と、その経緯をまとめたスライドです。否定の声も大きいことから、本当に削除されるかはまだわからないと結論づけています。
 
 ### End of life for Actions Node16 · GitHub Changelog
 
@@ -113,7 +113,7 @@ https://github.blog/changelog/2024-09-25-end-of-life-for-actions-node16/
 
 https://x.com/sebastienlorber/status/1840674102178103422
 
-React v19より、用語変更が行われ、Server ActionsはServer Functionsに変更されました。Server Actionsという用語の代わりにServer Functionsという用語を使うようになり、Server Actionsはその中の特定の使い方を指すようになりました。
+React v19より、用語変更が行われ、Server Actionsは[Server Functions](https://19.react.dev/reference/rsc/server-functions)に変更されました。Server Actionsという用語の代わりにServer Functionsという用語を使うようになり、Server Actionsはその中の特定の使い方を指すようになりました。
 
 ### New support eslint 9 by G-Rath · Pull Request #2996 · import-js/eslint-plugin-import
 
@@ -146,6 +146,6 @@ https://github.com/whatwg/meta/issues/326
 
 ## あとがき
 
-Prismaの`undefined`に苦い思いでがある人は少なくないと思うので、嬉しい変更だなと思います。元になったIssueでは、`undefined`によってテーブルごと消えてしまったようです。
+Prismaの`undefined`に苦い思い出がある人は少なくないと思うので、嬉しい変更だなと思います。元になったIssueでは、`undefined`によってテーブルごと消えてしまったようです。
 
 https://github.com/prisma/prisma/issues/20169
