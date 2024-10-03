@@ -23,10 +23,11 @@ https://webkit.org/blog/15865/webkit-features-in-safari-18-0/
 
 Safari 18.0がリリースされました。一部機能を抜粋します。
 
-- Distraction Control
-  - ウェブブラウジング中の邪魔な要素を非表示にできる
-- iPhone Mirroring and remote inspection
-  - MacからiPhoneをミラーリングし、リモートiOS上のWebサイトのテストやデバッグができる
+- 新機能
+  - Distraction Control
+    - ウェブブラウジング中の邪魔な要素を非表示にできる
+  - iPhone Mirroring and remote inspection
+    - MacからiPhoneをミラーリングし、リモートiOS上のWebサイトのテストやデバッグができる
 - CSS
   - View Transition APIのサポート
   - Style Queriesのサポート
