@@ -119,7 +119,8 @@ React v19より、用語変更が行われ、Server Actionsは[Server Functions]
 
 https://github.com/import-js/eslint-plugin-import/pull/2996
 
-eslint-plugin-importがESLint v9をサポートしました（執筆時2024年10月3日では、まだリリースされていません）。ESLint v8のEOLは2024年10月5日を予定しており、利用者側はアップデートを急ぐ必要があります。
+eslint-plugin-importが[v2.31.0](https://github.com/import-js/eslint-plugin-import/releases/tag/v2.31.0)をリリースし、ESLint v9をサポートしました。
+ESLint v8のEOLは2024年10月5日を予定しており、利用者側はアップデートを急ぐ必要があります。
 
 ### Storybook8.3
 
