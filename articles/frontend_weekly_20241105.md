@@ -3,7 +3,7 @@ title: "Next.jsのdynamicIOなど: Cybozu Frontend Weekly (2024-11-05号)" # 目
 emoji: "📰" # お好きな絵文字を
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["CybozuFrontendWeekly", "frontend"]
-published: false
+published: true
 publication_name: "cybozu_frontend"
 ---
 
