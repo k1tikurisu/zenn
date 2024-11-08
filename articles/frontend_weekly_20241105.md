@@ -23,7 +23,7 @@ https://github.com/vercel/next.js/pull/69949
 
 `unstable_noStore()`の代わりとなる新しいAPIである、`connection()`を導入するPRです。
 
-`connection()`は、Dynamic APIを使用しないコンポーネントでも、実行時に動的にレンダリングしたい場合に便利です。通常`Math.random()`や`new Date()`のような外部情報にアクセスする場合に使用されます。
+`connection()`は、Dynamic APIを使用しないコンポーネントでも、実行時に動的にレンダリングしたい場合に使用します。通常`Math.random()`や`new Date()`のような外部情報にアクセスする場合に役立ちます。
 
 ### Intl.DurationFormatの最大値を規定する仕様について
 
@@ -31,15 +31,15 @@ https://sosukesuzuki.dev/posts/intl-durationformat-limits/
 
 `Intl.DurationFormat`における最大値の仕様とJavaScriptCoreでの実装について解説している記事です。
 
-`Intl.DurationFormat`は、ロケール情報に応じて経過時間をフォーマットするAPIで、2023年10月にステージ3に到達し、単位ごとの最大値が規定されました。JavaScriptCoreでの最大値の実装では、浮動小数点数（double）を使うと、計算に丸め誤差が生じ、正確な値を計算できない問題がありました。このため、浮動小数点ではなくナノ秒を基準とした整数での表現で実装し、大きな数値にも対応できるInt128型を使用して正確な計算を実現しています。
+`Intl.DurationFormat`は、ロケール情報に応じて経過時間をフォーマットするAPIで、2023年10月にステージ3に到達し、単位ごとの最大値が規定されました。JavaScriptCoreへの実装では、浮動小数点数（double）を使うと、計算に丸め誤差が生じ、正確な値を計算できない問題がありました。このため、浮動小数点ではなくナノ秒を基準とした整数表現で実装し、大きな数値にも対応できるInt128型を使用して正確な計算を実現しています。
 
 ### How should `<selectedoption>` work? - JakeArchibald.com
 
 https://jakearchibald.com/2024/how-should-selectedoption-work/
 
-`<selectedoption>`要素の仕様についてフィードバックを募集する記事です。
+`<selectedoption>`要素の仕様についての記事です。
 
-`<selectedoption>`は、選択された`<option>`の内容を複製してボタン内に表示する機能を持ちます。選択された後に非同期処理などで`<option>`が変更された場合、どのように反映されるべきかの仕様は定まっていませんでした。すでにフィードバックから仕様は決まり、選択された後の`<option>`の変更は必要に応じてリセットメソッドを使って反映するという仕様になりました。
+`<selectedoption>`には選択された`<option>`の内容が複製されます。これまで、選択後に非同期処理などで`<option>`が変更された場合の反映方法は未定義でしたが、フィードバックにより、必要に応じてリセットメソッドを使って反映するという仕様になりました。
 
 ### Container Queries/祖先要素に応じたCSSの切り替え ［CSS Modern Features no.2］ | gihyo.jp
 
@@ -78,9 +78,9 @@ Next.jsで実験段階の新しいキャッシュモードである、`dynamicIO
 
 https://youtu.be/33ex2A04b7g?si=S0kbjnp6LWC5yM70
 
-VoidZero設立について、Evan You氏にインタビューするYouTube動画です。
+JSツールチェーンの統一を目指すVoidZeroの設立について、Evan You氏にインタビューするYouTube動画です。
 
-VoidZeroはJSツールチェーンの統一を目指していて、実は昨年に設立されていました。長期的なマネタイズを考えるより、まずはJSツールチェーンを統一しメリットを開発者に提供することでファンを増やしていくことを考えているそうです。
+動画内では、VoidZeroは実は昨年に設立されていたことや、長期的なマネタイズを考えるより、まずはJSツールチェーンを統一しメリットを開発者に提供することでファンを増やしていくことを考えている点などについて触れられています。
 
 ### 　How Microsoft Edge Is Replacing React With Web Components - The New Stack
 
