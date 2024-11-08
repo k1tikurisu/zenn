@@ -86,7 +86,9 @@ JSツールチェーンの統一を目指すVoidZeroの設立について、Evan
 
 https://thenewstack.io/how-microsoft-edge-is-replacing-react-with-web-components/
 
-MicrosoftのEdgeチームが、ReactベースのUIコンポーネントをWebComponentsに置き換えるプロジェクト「WebUI 2.0」を進めています。主な理由は、既存のReact実装が特に低スペックマシンでパフォーマンスの問題を引き起こしていたためです。巨大な依存関係バンドルにより、ローカルアプリケーションでも起動に数秒かかるなどの問題が発生していました。チームは2024年末までに約50%のReactベースUIをWebComponentsに移行することを目指しています。
+MicrosoftのEdgeチームが進めている、ReactベースのUIコンポーネントをWebComponentsに置き換えるプロジェクト「WebUI 2.0」の、プロジェクト発足の経緯や現在の状況についての記事です。
+
+発足した主な理由は、既存のReact実装が特に低スペックマシンでパフォーマンスの問題を引き起こしていたためです。ローカルアプリケーションでも起動に数秒かかるなどの問題が発生していました。チームは2024年末までに約50%のReactベースUIをWebComponentsに移行することを目指しています。
 
 ### Announcing v3 | Chakra UI
 
