@@ -31,7 +31,7 @@ https://sosukesuzuki.dev/posts/intl-durationformat-limits/
 
 `Intl.DurationFormat`における最大値の仕様とJavaScriptCoreでの実装について解説している記事です。
 
-`Intl.DurationFormat`は、ロケール情報に応じて経過時間をフォーマットするAPIで、2023年10月にステージ3に到達し、単位ごとの最大値が規定されました。最大値の実装では、浮動小数点数（double）を使うと、計算に丸め誤差が生じ、正確な値を計算できない問題がありました。このため、浮動小数点ではなくナノ秒を基準とした整数での表現で実装し、大きな数値にも対応できるInt128型を使用して正確な計算を実現しています。
+`Intl.DurationFormat`は、ロケール情報に応じて経過時間をフォーマットするAPIで、2023年10月にステージ3に到達し、単位ごとの最大値が規定されました。JavaScriptCoreでの最大値の実装では、浮動小数点数（double）を使うと、計算に丸め誤差が生じ、正確な値を計算できない問題がありました。このため、浮動小数点ではなくナノ秒を基準とした整数での表現で実装し、大きな数値にも対応できるInt128型を使用して正確な計算を実現しています。
 
 ### How should `<selectedoption>` work? - JakeArchibald.com
 
