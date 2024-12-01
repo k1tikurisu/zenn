@@ -1,0 +1,8 @@
+title: "UnJSを網羅する"
+summary: "UnJSを網羅的に紹介します。\n UnJSを網羅するアドベントカレンダーで執筆したものです。\nhttps://adventar.org/calendars/9987"
+topics: ["UnJS", "Nuxt", "Vite", "JavaScript", "TypeScript"]
+published: true
+price: 0
+# 本に含めるチャプターを順番に並べましょう
+chapters:
+  - introduction
