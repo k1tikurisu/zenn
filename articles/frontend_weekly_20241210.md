@@ -133,7 +133,7 @@ https://sosukesuzuki.dev/posts/jsc-contributions-2024/
 
 https://help.salesforce.com/s/articleView?id=release-notes.rn_lex_default_font.htm&release=232&type=5
 
-Salesforceは、2021年にデフォルトフォントを各OSのネイティブUIフォントに変更しました。Salesforceの、システムフォントを使うべき理由がまとめられています。
+Salesforceは、2021年にデフォルトフォントを各OSのネイティブUIフォントに変更しました。Salesforceが考えるOSのシステムフォントを使うメリットなどがまとめられてます。
 
 ## あとがき
 
