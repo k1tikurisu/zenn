@@ -3,7 +3,7 @@ title: "React v19リリースなど(2024-12-10号)" # 目立ったニュース�
 emoji: "⚛️" # お好きな絵文字を
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["CybozuFrontendWeekly", "frontend"]
-published: true
+published: false
 publication_name: "cybozu_frontend"
 ---
 
