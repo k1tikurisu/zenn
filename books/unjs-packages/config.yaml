@@ -3,6 +3,9 @@ summary: "UnJSを網羅的に紹介します。\n UnJSを網羅するアドベ�
 topics: ["UnJS", "Nuxt", "Vite", "JavaScript", "TypeScript"]
 published: true
 price: 0
+toc_depth: 3
 # 本に含めるチャプターを順番に並べましょう
 chapters:
   - introduction
+  - document-management
+  - file-io
