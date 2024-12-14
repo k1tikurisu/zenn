@@ -1,0 +1,19 @@
+{
+  "filters": {
+    "comments": true
+  },
+  "rules": {
+    "textlint-rule-preset-ja-technical-writing": {
+      "sentence-length": {
+        "max": 200
+      },
+      "ja-no-weak-phrase": false,
+      "no-exclamation-question-mark": false,
+      "ja-unnatural-alphabet": false,
+      "no-mix-dearu-desumasu": false
+    },
+    "preset-jtf-style": {
+      "3.1.1.全角文字と半角文字の間": false
+    }
+  }
+}

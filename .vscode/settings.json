@@ -10,4 +10,17 @@
     },
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "textlint.autoFixOnSave": true,
+  "textlint.configPath": ".textlintrc",
+  "textlint.run": "onType",
+  "textlint.targetPath": "*.md",
+  "cSpell.words": [
+    "automd",
+    "bundlephobia",
+    "defu",
+    "jsdocs",
+    "mdbox",
+    "packagephobia",
+    "undocs"
+  ],
 }
