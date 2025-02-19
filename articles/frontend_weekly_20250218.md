@@ -3,7 +3,7 @@ title: "TypeScript 5.8 RCの公開など(2025-02-18号)" # 目立ったニュー
 emoji: "🫧" # お好きな絵文字を
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["CybozuFrontendWeekly", "frontend"]
-published: false
+published: true
 publication_name: "cybozu_frontend"
 ---
 
