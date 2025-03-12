@@ -1,5 +1,5 @@
 ---
-title: "「CLINEに全部賭けろ」など(2025-03-12号)" # 目立ったニュースを選ぶ
+title: "「CLINEに全部賭けろ」など(2025-03-11号)" # 目立ったニュースを選ぶ
 emoji: "🤖" # お好きな絵文字を
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["CybozuFrontendWeekly", "frontend"]
@@ -13,7 +13,7 @@ publication_name: "cybozu_frontend"
 
 サイボウズ社内では毎週火曜日にFrontend Weeklyと題し「一週間の間にあったフロントエンドニュースを共有する会」を開催しています。
 
-今回は、2025/03/12のFrontend Weeklyで取り上げた記事や話題を紹介します。
+今回は、2025/03/11のFrontend Weeklyで取り上げた記事や話題を紹介します。
 
 ## 取り上げた記事・話題
 
