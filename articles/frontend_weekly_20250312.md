@@ -23,7 +23,7 @@ https://github.com/prisma/prisma/releases/tag/6.4.0
 
 Prisma 6.4.0がリリースされました。主な更新内容は次の通りです。
 
-- TypeScriptベースの設定ファイル`prisma.config.ts`がEarly Accessとして導入
+- TypeScriptベースの設定ファイル`prisma.config.ts`をEarly Accessとして導入
 - JSONに対して大文字と小文字を区別しない検索ができるように
 - CockroachDBのマイグレーション速度の大幅改善
 
@@ -38,7 +38,7 @@ Deno 2.2がリリースされました。主な変更内容は次の通りです
 - `node:sqlite`モジュールのサポート
 - `deno check`の改善
 - `deno lsp`の高速化と機能強化
-- `deno task`でワイルドカードが使用できるよう
+- `deno task`でワイルドカードが使用できるように
 - WebTransportとQUIC APIの実験的サポート
 - Node.js/npmの互換性向上
 
@@ -124,14 +124,10 @@ Open UIのデザインシステムのドキュメント化ツールについて�
 
 ## Intent to Prototype: CSS sibling-index() and sibling-count()
 
-https://groups.google.com/a/chromium.org/g/blink-dev/c/qOdmXuip85o/m/2etAfDC5AQAJ
-
-## Intent to Prototype: CSS sibling-index() and sibling-count()
-
 https://groups.google.com/a/chromium.org/g/blink-dev/c/qOdmXuip85o/m/my-groups
 
-CSSの新しい関数として`sibling-index()`と`sibling-count()`の実装が提案されました。これらの関数を使うと、要素の兄弟要素間での位置や総数に基づいてスタイリングができるようになります。
+CSSの新しい関数として`sibling-index()`と`sibling-count()`の実装が提案されました。要素の兄弟要素間での位置や総数に基づいてスタイリングができるようになります。
 
 ## あとがき
 
-AIツールがたくさん出てますね！
+AIツールがたくさん出てますね！まだClineはさわれていないですが、コーディングはCursorでやっています。
