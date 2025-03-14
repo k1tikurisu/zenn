@@ -3,7 +3,7 @@ title: "「CLINEに全部賭けろ」など(2025-03-11号)" # 目立ったニュ
 emoji: "🤖" # お好きな絵文字を
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["CybozuFrontendWeekly", "frontend"]
-published: false
+published: true
 publication_name: "cybozu_frontend"
 ---
 
