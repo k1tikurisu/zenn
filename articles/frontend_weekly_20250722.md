@@ -3,7 +3,7 @@ title: "Next.js 15.4リリースなど: Cybozu Frontend Weekly (2025-07-22号)" 
 emoji: "⚡" # お好きな絵文字を
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["CybozuFrontendWeekly", "frontend"]
-published: false
+published: true
 publication_name: "cybozu_frontend"
 ---
 
@@ -47,7 +47,7 @@ React RouterとReact Server Componentsの統合について、今後どのよう
 https://developers.prtimes.jp/2025/07/18/company-page-recoil-migration/
 
 PR TIMESによる、Recoil剥がしの事例を紹介する記事です。
-依存度がかなり高かったことから、@state-tracer/recoilという自作ライブラリでstateの依存関係を把握するところから始めて、stateの分離やTanStack Query・Jotaiへの移行を進めていった事例です。今後はまだ大規模なエディター機能のRecoil剥がしがあるとのことです。
+依存度がかなり高かったことから、@state-tracer/recoilという自作ライブラリでstateの依存関係を把握するところから始めて、stateの分離やTanStack Query・Jotaiへの移行を進めていったようです。今後はまだ大規模なエディター機能のRecoil剥がしがあるとのことです。
 
 ### 消費者欺く「ダークパターン」撲滅へ　“誠実なWebサイト”認定制度
 
