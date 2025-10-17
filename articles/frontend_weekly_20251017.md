@@ -21,19 +21,22 @@ publication_name: "cybozu_frontend"
 
 https://react.dev/blog/2025/10/01/react-19-2
 
-React 19.2 がリリースされました。 新機能として、 `<Activity>` コンポーネント、 `useEffectEvent`、 `cacheSignal` などが追加されています。
+React 19.2 がリリースされました。
+新機能として、 `<Activity>` コンポーネント、 `useEffectEvent`、 `cacheSignal` などが追加されています。
 
 ## What's coming in ESLint v10.0.0
 
 https://eslint.org/blog/2025/10/whats-coming-in-eslint-10.0.0/
 
-ESLint v10.0.0 の開発計画が発表されました。2025年11月にアルファ版、2026年1月に正式版のリリースが予定されています。v10以降、 Flat Configが強制されます。
+ESLint v10.0.0 の開発計画が発表されました。
+2025年11月にアルファ版、2026年1月に正式版のリリースが予定されています。v10以降、 Flat Configが強制されます。
 
 ### Remix Jam 2025
 
 https://www.youtube.com/live/xt_iEOn2a6Y
 
-Remix Jam 2025 で、Remix 3 が発表されました。Remix 3のビジョンや、アイデア、設計思想については、次の記事で詳しくまとめられています。
+Remix Jam 2025 で、Remix 3 が発表されました。
+Remix 3のビジョンや、アイデア、設計思想については、次の記事で詳しくまとめられています。
 
 https://zenn.dev/coji/articles/remix3-introduction
 
@@ -62,7 +65,8 @@ Interop の proposal の中でどれに関心があるかランキングづけ�
 
 https://react.dev/blog/2025/10/07/introducing-the-react-foundation
 
-React と React Native を Meta から新しい React Foundation に移管することを発表しました。React Foundation は、React や React Native、JSX などのプロジェクトを管理し、React Conf の開催やエコシステムプロジェクトへの資金援助などを行うとのことです。
+React と React Native を Meta から新しい React Foundation に移管することを発表しました。
+React Foundation は、React や React Native、JSX などのプロジェクトを管理し、React Conf の開催やエコシステムプロジェクトへの資金援助などを行うとのことです。
 
 ## あとがき
 
