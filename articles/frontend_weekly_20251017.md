@@ -17,14 +17,14 @@ publication_name: "cybozu_frontend"
 
 ## 取り上げた記事・話題
 
-## React 19.2
+### React 19.2
 
 https://react.dev/blog/2025/10/01/react-19-2
 
 React 19.2 がリリースされました。
 新機能として、 `<Activity>` コンポーネント、 `useEffectEvent`、 `cacheSignal` などが追加されています。
 
-## What's coming in ESLint v10.0.0
+### What's coming in ESLint v10.0.0
 
 https://eslint.org/blog/2025/10/whats-coming-in-eslint-10.0.0/
 
