@@ -36,7 +36,7 @@ Vite+は、 Vite上に構築された統合開発ツールチェーンです。�
 
 https://blog.re-taro.dev/p/01K72ECG97DYRTNSG7CB6KB6J9
 
-りんたろー[@re-taro](https://x.com/re_taro_）氏による、 React Conf 2025 の参加レポートです。
+りんたろー [@re-taro](https://x.com/re_taro_) 氏による、 React Conf 2025 の参加レポートです。
 印象に残った内容として、React Compiler v1 の正式リリースや Async React という新しいビジョンについて書かれています。
 
 ### Interop Feature Ranking
