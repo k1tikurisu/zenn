@@ -17,6 +17,18 @@ publication_name: "cybozu_frontend"
 
 ## 取り上げた記事・話題
 
+## React 19.2
+
+https://react.dev/blog/2025/10/01/react-19-2
+
+React 19.2 がリリースされました。 新機能として、 `<Activity>` コンポーネント、 `useEffectEvent`、 `cacheSignal` などが追加されています。
+
+## What's coming in ESLint v10.0.0
+
+https://eslint.org/blog/2025/10/whats-coming-in-eslint-10.0.0/
+
+ESLint v10.0.0 の開発計画が発表されました。2025年11月にアルファ版、2026年1月に正式版のリリースが予定されています。v10以降、 Flat Configが強制されます。
+
 ### Remix Jam 2025
 
 https://www.youtube.com/live/xt_iEOn2a6Y
